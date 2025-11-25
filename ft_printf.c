@@ -6,7 +6,7 @@
 /*   By: kkweon <kkweon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/25 13:19:29 by kkweon            #+#    #+#             */
-/*   Updated: 2025/11/25 14:57:26 by kkweon           ###   ########.fr       */
+/*   Updated: 2025/11/25 16:08:57 by kkweon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,11 @@
 
 // for va_list, va_start, va_arg, va_end functions
 
-int ft_printf_test1(const char *str, ...)
+int ft_printf_test1(const char *format, ...)
 {
+    va_list args;
+    int count;
+    char *str;
     unsigned int count;
 
     count = 0;
