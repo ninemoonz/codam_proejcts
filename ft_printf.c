@@ -1,28 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kkweon <kkweon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/24 16:53:09 by kkweon            #+#    #+#             */
-/*   Updated: 2025/11/25 14:18:07 by kkweon           ###   ########.fr       */
+/*   Created: 2025/11/25 13:19:29 by kkweon            #+#    #+#             */
+/*   Updated: 2025/11/25 14:57:26 by kkweon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
+#include <string.h>
 #include <stdarg.h>
+#include <stdlib.h>
+#include <unistd.h>
 
-/*
-va_list
-va_start
-va_end
-va_arg
- */
+// for va_list, va_start, va_arg, va_end functions
 
-int	main(void)
+int ft_printf_test1(const char *str, ...)
 {
-	printf("hello world\n");
-	printf("%x", 3232);
-	return (0);
+    unsigned int count;
+
+    count = 0;
+    while (str[count])
+    {
+        if (str[count] == '\0')
+            return (1);
+        write(1, &str[count], 1);
+        count++;
+    }
+    return (0);
+}
+
+
+int main (void)
+{
+    char *str = "hello world!";
+    ft_printf_test1(str);
+    return (0);
 }
