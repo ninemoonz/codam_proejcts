@@ -6,40 +6,51 @@
 /*   By: kkweon <kkweon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/25 13:19:29 by kkweon            #+#    #+#             */
-/*   Updated: 2025/11/25 16:08:57 by kkweon           ###   ########.fr       */
+/*   Updated: 2025/11/27 15:54:21 by kkweon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
-#include <stdarg.h>
-#include <stdlib.h>
-#include <unistd.h>
+#include "ft_printf.h"
 
 // for va_list, va_start, va_arg, va_end functions
 
-int ft_printf_test1(const char *format, ...)
+int type_specifier(va_list args, char c)
 {
-    va_list args;
-    int count;
-    char *str;
-    unsigned int count;
+	int	va;
 
-    count = 0;
-    while (str[count])
-    {
-        if (str[count] == '\0')
-            return (1);
-        write(1, &str[count], 1);
-        count++;
-    }
+	va = 0;
+    if (c == 's')
+        va = ft_putstr(va_arg(args, char *));
+    return (va);
+}
+
+int ft_printf(const char *format, ...)
+{
+    va_list args; 
+	int i;
+    int data_type;
+
+	va_start(args, format);
+	i = 0;
+    data_type = 0;
+	while (format[i])
+	{
+		if (format[i] == '%')
+        {
+            if (format[i + 1] != '\0')
+                data_type += type_specifier(args, format[i + 1]);
+        }
+        else
+            data_type += ft_putchar(format[i]);
+        i++;
+	}
+    va_end(args);
     return (0);
 }
 
-
 int main (void)
 {
-    char *str = "hello world!";
-    ft_printf_test1(str);
-    return (0);
+    char *nine = "nine";
+	ft_printf("hello %s", nine);
+	return (0);
 }

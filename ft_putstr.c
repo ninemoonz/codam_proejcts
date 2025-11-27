@@ -1,46 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kkweon <kkweon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/24 16:53:09 by kkweon            #+#    #+#             */
-/*   Updated: 2025/11/25 16:49:00 by kkweon           ###   ########.fr       */
+/*   Created: 2025/10/22 14:09:59 by kkweon            #+#    #+#             */
+/*   Updated: 2025/11/27 15:52:53 by kkweon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdarg.h>
+#include "ft_printf.h"
 
-int sum(int nitem, ...)
+int	ft_putstr(char *s)
 {
-	int i;
-	int res;
-	va_list args;
+	int	i;
+
+	if (s == NULL)
+		return (write(1, "NULL", 4));
 
 	i = 0;
-	res = 0;
-	va_start(args, nitem);
-	while(i < nitem)
+	while (s[i])
 	{
-		res += va_arg(args, int);
+		write(1, &s[i], 1);
 		i++;
 	}
-	va_end(args);
-	return (res);
-}
-
-int ft_printf(const char *format, ...)
-{
-	va_list args;
-	va_start(args, format);
-}
-
-int	main(void)
-{
-
-	printf("%d\n", sum(3, 3, 3, 3, 3));
-	ft_printf("hello %s say hi %d times\n", "world", 3);
-	return (0);
+	return (i);
 }
