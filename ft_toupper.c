@@ -1,32 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kkweon <kkweon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/25 14:55:23 by kkweon            #+#    #+#             */
-/*   Updated: 2025/11/28 13:04:22 by kkweon           ###   ########.fr       */
+/*   Created: 2025/10/10 13:30:46 by kkweon            #+#    #+#             */
+/*   Updated: 2025/11/28 13:06:13 by kkweon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
-# include <stdarg.h>
-# include <stdio.h>
-# include <stdlib.h>
-# include <unistd.h>
-# include "ft_printf.h"
+#include "ft_printf.h"
 
-int ft_printf(const char *format, ...);
-int	ft_putchar(char c);
-int	ft_putstr(char *s);
-int	ft_putnbr(int n);
-int	ft_putunbr(unsigned int n);
-int	ft_toupper(int c);
-
-#endif
-
-
-
-
+int	ft_toupper(int c)
+{
+	if (c >= 97 && c <= 122)
+		c = c - 32;
+	else
+		return (c);
+	return (c);
+}
