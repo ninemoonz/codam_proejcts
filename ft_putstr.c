@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kkweon <kkweon@student.42.fr>              +#+  +:+       +#+        */
+/*   By: koodal <koodal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 14:09:59 by kkweon            #+#    #+#             */
-/*   Updated: 2025/11/27 15:52:53 by kkweon           ###   ########.fr       */
+/*   Updated: 2025/12/03 15:53:12 by koodal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ int	ft_putstr(char *s)
 
 	if (s == NULL)
 		return (write(1, "NULL", 4));
-
 	i = 0;
 	while (s[i])
 	{
