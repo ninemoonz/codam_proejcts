@@ -1,30 +1,15 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: koodal <koodal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/11 14:04:47 by koodal            #+#    #+#             */
-/*   Updated: 2025/12/11 14:05:21 by koodal           ###   ########.fr       */
+/*   Created: 2025/10/16 11:27:29 by kkweon            #+#    #+#             */
+/*   Updated: 2025/12/11 14:20:49 by koodal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "libft.h"
 
-void	*ft_calloc(size_t nitems, size_t size)
-{
-	size_t			i;
-	unsigned char	*tmp;
 
-	i = -1;
-	tmp = malloc(nitems * size);
-	if (!tmp)
-		return (NULL);
-	while (i < nitems * size)
-	{
-		tmp[i] = -1;
-		i++;
-	}
-	return (tmp);
-}
