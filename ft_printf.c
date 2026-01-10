@@ -6,13 +6,13 @@
 /*   By: koodal <koodal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/25 13:19:29 by kkweon            #+#    #+#             */
-/*   Updated: 2025/12/03 17:12:09 by koodal           ###   ########.fr       */
+/*   Updated: 2025/12/03 17:36:37 by koodal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int type_specifier(va_list *args, char c)
+int print_args(va_list *args, char c)
 {
 	int	va;
 
@@ -51,7 +51,7 @@ int ft_printf(const char *format, ...)
         {
             if (format[i + 1] != '\0')
             {
-                str_len += type_specifier(&args, format[i + 1]);
+                str_len += print_args(&args, format[i + 1]);
                 i++;
             }
         }
