@@ -1,26 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putuphex.c                                      :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: koodal <koodal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/28 12:59:22 by kkweon            #+#    #+#             */
-/*   Updated: 2026/01/10 17:24:20 by koodal           ###   ########.fr       */
+/*   Created: 2026/01/10 12:29:25 by koodal            #+#    #+#             */
+/*   Updated: 2026/01/10 18:57:30 by koodal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int ft_putuphex(unsigned int n)
+int main (void)
 {
-    char *hex_letter = "0123456789ABCDEF";
-    int hex_nbr;
-
-    hex_nbr = 0;
-    if (n >= 16)
-        hex_nbr += ft_putuphex(n / 16);
-    write(1, &hex_letter[n % 16], 1);
-    hex_nbr++;
-    return (hex_nbr);
+    printf("[STANDARD PRINTF]\n");
+    int num = printf("%d\n", -12345);
+    printf("std return: %d\n", num);
+    printf("[42 PRINTF]\n");
+    int num_ft = ft_printf("%d\n", -12345);
+    ft_printf("ft return: %d\n", num_ft);
+    return (0);
 }

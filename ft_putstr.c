@@ -6,7 +6,7 @@
 /*   By: koodal <koodal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 14:09:59 by kkweon            #+#    #+#             */
-/*   Updated: 2025/12/03 15:53:12 by koodal           ###   ########.fr       */
+/*   Updated: 2026/01/10 18:36:36 by koodal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	ft_putstr(char *s)
 	int	i;
 
 	if (s == NULL)
-		return (write(1, "NULL", 4));
+		return (write(1, "(null)", 6));
 	i = 0;
 	while (s[i])
 	{

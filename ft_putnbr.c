@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kkweon <kkweon@student.42.fr>              +#+  +:+       +#+        */
+/*   By: koodal <koodal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 14:30:03 by kkweon            #+#    #+#             */
-/*   Updated: 2025/11/27 16:20:03 by kkweon           ###   ########.fr       */
+/*   Updated: 2026/01/10 18:56:28 by koodal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,20 +21,17 @@ int	ft_putnbr(int n)
 		return (write(1, "-2147483648", 11));
 	else if (n < 0)
 	{
-		res = write(1, "-", 1);
+		res += ft_putchar('-');
 		n = -n;
 	}
 	if (n >= 10)
 	{
-		res = ft_putnbr(n / 10);
-		res++;
-		res = ft_putnbr(n % 10);
-		res++;
+		res += ft_putnbr(n / 10);
+		res += ft_putnbr(n % 10);
 	}
 	else
 	{
-		res = ft_putchar(n + '0');
-		res++;
+		res += ft_putchar(n + '0');
 	}
 	return (res);
 }
