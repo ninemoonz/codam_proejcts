@@ -6,7 +6,7 @@
 /*   By: koodal <koodal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 14:05:29 by koodal            #+#    #+#             */
-/*   Updated: 2026/01/16 15:32:25 by koodal           ###   ########.fr       */
+/*   Updated: 2026/01/16 16:42:03 by koodal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,4 +24,9 @@
 #  define BUFFER_SIZE 4
 # endif
 
-char *get_next_line(int fd);
+char    *get_next_line(int fd);
+char    *ft_strdup(const char *s);
+char    *ft_strchr(const char *str, int init);
+char    *ft_strjoin(char const *s1, char const *s2);
+size_t  ft_strlen(const char *str);
+char    *ft_substr(char const *s, unsigned int start, size_t len);

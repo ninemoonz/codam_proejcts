@@ -6,11 +6,30 @@
 /*   By: koodal <koodal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 14:04:47 by koodal            #+#    #+#             */
-/*   Updated: 2026/01/16 15:31:59 by koodal           ###   ########.fr       */
+/*   Updated: 2026/01/16 16:41:27 by koodal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+
+char	*ft_substr(char const *s, unsigned int start, size_t len)
+{
+	int		tot_len;
+	char	*dest_mem;
+	int		i;
+
+	tot_len = ft_strlen(s);
+	dest_mem = (char *)malloc((len + 1) * sizeof(char));
+	i = 0;
+	while (i < len)
+	{
+		dest_mem[i] = s[start];
+		i++;
+		start++;
+	}
+	dest_mem[i] = '\0';
+	return (dest_mem);
+}
 
 char	*ft_strdup(const char *s)
 {
