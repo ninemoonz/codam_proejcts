@@ -6,11 +6,31 @@
 /*   By: koodal <koodal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 14:04:47 by koodal            #+#    #+#             */
-/*   Updated: 2026/01/16 15:22:10 by koodal           ###   ########.fr       */
+/*   Updated: 2026/01/16 15:31:59 by koodal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+
+char	*ft_strdup(const char *s)
+{
+	int		i;
+	size_t	len;
+	char	*dup;
+
+	len = ft_strlen(s);
+	dup = (char *)malloc((len + 1) * sizeof(char));
+	if (dup == NULL)
+		return (NULL);
+	i = 0;
+	while (s[i])
+	{
+		dup[i] = s[i];
+		i++;
+	}
+	dup[i] = '\0';
+	return (dup);
+}
 
 char	*ft_strchr(const char *str, int init)
 {
@@ -55,7 +75,6 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	dest[i] = '\0';
 	return (dest);
 }
-
 
 size_t	ft_strlen(const char *str)
 {

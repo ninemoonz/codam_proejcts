@@ -6,7 +6,7 @@
 /*   By: koodal <koodal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 10:28:32 by koodal            #+#    #+#             */
-/*   Updated: 2026/01/16 15:16:49 by koodal           ###   ########.fr       */
+/*   Updated: 2026/01/16 15:36:10 by koodal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,22 +20,24 @@
 char *until_nl(int fd, char *buffer)
 {
     static char *stash;
+    char *tmp;
     int rd_bytes;
     
     if (fd <= 0)
         return (NULL);
-    if (stash == NULL)
-        stash = strdup("");
     rd_bytes = 1;
     while (rd_bytes > 0)
     {
         rd_bytes = read(fd, buffer, BUFFER_SIZE);
         buffer[rd_bytes] = '\0';
+        if (stash == NULL)
+            stash = ft_strdup("");
+        tmp = stash;
+        stash = ft_strjoin(tmp, buffer);
         printf("buffer read: %s\n", buffer);
         printf("rd_byte: %d\n", rd_bytes);
     }
-
-    return (buffer);
+    return (stash);
 }
 
 int main (void)
